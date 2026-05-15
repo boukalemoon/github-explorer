@@ -1,0 +1,9 @@
+export default function handler(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.status(200).json({
+        status: 'ok',
+        hasApiKey: !!process.env.ANTHROPIC_API_KEY,
+        hasGithubToken: !!process.env.GITHUB_TOKEN,
+        runtime: 'vercel',
+    })
+}
